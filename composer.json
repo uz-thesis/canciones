@@ -1,0 +1,41 @@
+{
+<<<<<<< HEAD
+    "name": "uz-thesis/canciones",
+=======
+    "name": "uz/canciones",
+>>>>>>> Initial commit
+    "description": "Promoting Zamboanga and the Chavacano language through music videos",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mary Joy Tejano",
+            "email": "maryjoy.tejano@one.uz.edu.ph"
+        },
+        {
+            "name": "Bryan Libato",
+            "email": "bryan.libato@one.uz.edu.ph"
+        },
+        {
+            "name": "Mashra Sarail",
+            "email": "mashra.sarail@one.uz.edu.ph"
+        },
+        {
+            "name": "Alexander Giburg",
+            "email": "alex.gilburg@me.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "james-heinrich/getid3": "^1.9",
+        "twig/twig": "2.x-dev",
+        "kreait/firebase-php": "^4.0@dev"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Canciones\\" : "application/"
+        }
+    }
+}

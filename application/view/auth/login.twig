@@ -1,0 +1,24 @@
+{% include '_templates/header.twig' %}
+    <form class="" action="{{ constant('URL') }}auth/login" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" id="user" name="user" placeholder="Username:">
+        </div class="form-group">
+        <div>
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Password:">
+        </div>
+        <label for="submit_login" class="btn btn-primary mb-3 mt-3">
+            <svg id="i-signin" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <path d="M3 16 L23 16 M15 8 L23 16 15 24 M21 4 L29 4 29 28 21 28" />
+            </svg>
+            <span>Log in</span>
+        </label>
+        <input type="submit" id="submit_login" name="submit_login" value="" style="display: none;">
+    </form>
+    {% if errors|length > 0 %}
+    <ul>
+        {% for error in errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% include '_templates/footer.twig' %}

@@ -1,0 +1,9 @@
+{% include '_templates/header.twig' %}
+{% if errors | length > 0 %}
+    <ul>
+        {% for error in errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% include '_templates/footer.twig' %}

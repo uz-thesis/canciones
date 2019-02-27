@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ pagetitle ? pagetitle ~ ' - ' ~ constant('SITE_NAME') : constant('SITE_NAME') }}</title>
+        {{ customhead|raw }}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- JS -->
+        <!-- please note: The JavaScript files are loaded in the footer to speed up page construction -->
+        <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
+
+        <!-- Firebase must be in head -->
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-storage.js"></script>
+        <script>
+            // Initialize Firebase
+            // TODO: Replace with your project's customized code snippet
+            var config = {
+                apiKey: "AIzaSyDgC1iZ8wvz-mVcqD9rPfqiUQDDOnP2W8c",
+                authDomain: "canciones-cf681.firebaseapp.com",
+                databaseURL: "https://canciones-cf681.firebaseio.com",
+                projectId: "canciones-cf681",
+                storageBucket: "canciones-cf681.appspot.com",
+                messagingSenderId: "825527337003"
+            };
+            firebase.initializeApp(config);
+        </script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ constant('URL') }}css/bootstrap-theme-minty.min.css">
+    </head>
+    <body>
+        <!-- logo, check the CSS file for more info how the logo "image" is shown -->
+        <div class="logo"></div>
+
+        <!-- navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand{% if session.logged_in == false %} mx-auto{% endif %}" href="{{ constant('URL') }}">
+                <img src="{{ constant('URL') }}img/logo.png" width="60" height="60" class="d-inline-block align-middle" alt="">
+            </a>
+            {% if session.logged_in %}
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <a href="{{ constant('URL') }}musicvideo" class="nav-link">Music videos</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{{ constant('URL') }}auth/logout" onclick="firebaseSignOutUser();" class="nav-link">
+                                <svg id="i-signout" viewbox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                    <path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4"/>
+                                </svg>
+                                Log out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+        </nav>
+        <div class="container">
+            {% if pagetitle %}
+                <div class="pb-2 mt-4 mb-2 border-bottom">
+                    <h3>{{ pagetitle ? pagetitle ~ ' - ' ~ constant('SITE_NAME') : constant('SITE_NAME') }}</h3>
+                </div>
+            {% endif %}
