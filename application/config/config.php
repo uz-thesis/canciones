@@ -56,7 +56,7 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
  * FIREBASE_AUTH_JSON:
  * The JSON file containing the Firebase authentication data.
  */
-define('FIREBASE_AUTH_JSON', 'canciones-cf681-firebase-adminsdk-4ca8f-e5ace5fd83.json');
+define('FIREBASE_AUTH_JSON', 'chavacasongs-firebase-adminsdk-askfg-a3fe774b7f.json');
 
 /**
  * Configuration for: Site
